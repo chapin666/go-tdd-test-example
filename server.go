@@ -9,7 +9,7 @@ import (
 type PlayerStore interface {
 	GetPlayerScore(name string) int
 	RecordWin(name string)
-	GetLeague() []Player
+	GetLeague() League
 }
 
 type Player struct {
@@ -55,8 +55,8 @@ func (p *PlayerServer) playersHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func (p *PlayerServer) getLeagueTable() []Player {
-	return []Player{
+func (p *PlayerServer) getLeagueTable() League {
+	return League{
 		{"Chris", 20},
 	}
 }
